@@ -27,18 +27,31 @@ class LinkedList
     @head = node
   end
 
+  def size
+    index = 0
+    return index if @head.nil?
+
+    current_node = @head 
+    until current_node.next_node.nil?
+      current_node = current_node.next_node
+      index += 1
+    end
+    index + 1
+  end
+
   def to_s
     @self
   end
 end
 
 list = LinkedList.new
-p list
+p list.size 
 list.prepend(1)
-p list
+p list.size
 list.prepend(2)
-p list
+p list.size
 list.prepend(3)
-p list
-# list.append(4)
-# p list
+p list.size
+list.append(4)
+p list.size
+
