@@ -55,19 +55,29 @@ class LinkedList
     end
   end
 
+  def at(index)
+    return 'list empty' if @head.nil?
+
+    i = 0
+    current_node = @head 
+    until current_node.next_node.nil?
+      current_node = current_node.next_node
+      i += 1
+      return current_node if i == index
+    end
+  end
+
   def to_s
     @self
   end
 end
 
 list = LinkedList.new
-p list.tail 
 list.prepend(1)
-p list.tail
 list.prepend(2)
-p list.tail
 list.prepend(3)
-p list.tail
 list.append(4)
-p list.tail
+p list.at(0)
+p list.at(2)
+p list.at(3)
 
