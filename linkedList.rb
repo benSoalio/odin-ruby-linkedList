@@ -1,4 +1,4 @@
-require './node.rb'
+require './node'
 
 class LinkedList
   attr_accessor :head
@@ -21,6 +21,12 @@ class LinkedList
     end
   end
 
+  def prepend(value)
+    node = Node.new(value)
+    node.next_node = @head
+    @head = node
+  end
+
   def to_s
     @self
   end
@@ -28,11 +34,11 @@ end
 
 list = LinkedList.new
 p list
-list.append(1)
+list.prepend(1)
 p list
-list.append(2)
+list.prepend(2)
 p list
-list.append(3)
+list.prepend(3)
 p list
 # list.append(4)
 # p list
